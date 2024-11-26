@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+require( "dotenv" ).config()
 
 app.use(express.json());
 app.use(cors());
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI("AIzaSyDi0nxGEVC5GNT2uft4r1A1IYgFcPwJ1TE");
-// const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
